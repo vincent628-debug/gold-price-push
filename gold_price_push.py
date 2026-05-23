@@ -1,6 +1,6 @@
  #!/usr/bin/env python3
   # -*- coding: utf-8 -*-
-  """
+"""
   金价推送微信脚本
   数据源：新浪财经（沪金连续、COMEX黄金、沪银连续、离岸人民币）
   支持推送：Server酱、企业微信机器人、Bark(iOS)
