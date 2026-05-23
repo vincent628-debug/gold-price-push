@@ -1,5 +1,5 @@
-  name: 金价推送微信
-  
+name: 金价推送微信
+
   on:
     schedule:
       - cron: '0 14 * * *'
@@ -9,11 +9,22 @@
     push-gold-price:
       runs-on: ubuntu-latest
       steps:
-        - uses: actions/checkout@v4
-        - uses: actions/setup-python@v5
+        - name: 检出代码
+          uses: actions/checkout@v4
+
+        - name: 设置 Python
+          uses: actions/setup-python@v5
           with:
             python-version: '3.11'
-        - name: 运行推送脚本
+
+        - name: 设置时区
+          run: |
+            sudo timedatectl set-timezone Asia/Shanghai
+            date
+
+        - name: 运行金价推送脚本
           env:
             PUSHPLUS_TOKEN: ${{ secrets.PUSHPLUS_TOKEN }}
-          run: python gold_price_push.py
+          run: |
+            echo "Starting gold price push..."
+            python gold_price_push.py
