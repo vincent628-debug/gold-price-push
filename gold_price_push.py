@@ -19,13 +19,19 @@
   import urllib.parse
   from datetime import datetime
 
-  # ==================== 用户配置区域 ====================
+   # ==================== 用户配置区域 ====================
 
   # 优先从环境变量读取密钥（适合 GitHub Actions），本地可在此硬编码
   SERVERCHAN_KEY   = os.getenv('SERVERCHAN_KEY', '')
   WECHAT_WORK_KEY  = os.getenv('WECHAT_WORK_KEY', '')
   BARK_KEY         = os.getenv('BARK_KEY', '')
   PUSHPLUS_TOKEN   = os.getenv('PUSHPLUS_TOKEN', '')
+
+  # 调试：打印密钥是否存在（不打印值）
+  print(f"   SERVERCHAN_KEY:   {'已配置' if SERVERCHAN_KEY else '未配置'}")
+  print(f"   WECHAT_WORK_KEY:  {'已配置' if WECHAT_WORK_KEY else '未配置'}")
+  print(f"   BARK_KEY:         {'已配置' if BARK_KEY else '未配置'}")
+  print(f"   PUSHPLUS_TOKEN:   {'已配置' if PUSHPLUS_TOKEN else '未配置'}")
 
   # ==================== 测试模式 ====================
   # 设为 True 可使用模拟数据测试推送（无需联网）
